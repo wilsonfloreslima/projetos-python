@@ -52,7 +52,7 @@ def jogo():
         if resp == 'N':
             break
     print('--'*8)
-    print(f'Você fez {qtde} jogo(s) e somou {pts} ponto(s) ao todo!')
+    print(f'Você fez {qtde} jogo(s)\n e somou {pts} ponto(s) ao todo!')
     print('--' * 8)
 
 
