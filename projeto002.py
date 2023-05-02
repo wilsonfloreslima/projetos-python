@@ -6,7 +6,8 @@ def mensagem(msg):
     print('--' * 8)
 
 def jogo():
-    resp = ''
+    pts = 0
+    qtde = 0
     while True:
         jogador = int(input('Escolha:\n1] Pedra\n2] Papel \n3] Tesoura\n: '))
         while jogador < 1 or jogador > 3:
@@ -28,9 +29,11 @@ def jogo():
             elif jogador == 1 and com == 3:
                 print('\33[32mJOGADOR\33[m escolheu PEDRA, \33[31mCOM\33[m escolheu TESOURA.')
                 print('\33[32;1mJOGADOR VENCE!\33[m')
+                pts += 1
             elif jogador == 2 and com == 1:
                 print('\33[32mJOGADOR\33[m escolheu PAPEL, \33[31mCOM\33[m escolheu PEDRA.')
                 print('\33[32;1mJOGADOR VENCE!\33[m')
+                pts += 1
             elif jogador == 2 and com == 3:
                 print('\33[32mJOGADOR\33[m escolheu PAPEL, \33[31mCOM\33[m escolheu TESOURA.')
                 print('\33[31;1mCOM VENCE!\33[m')
@@ -40,12 +43,17 @@ def jogo():
             elif jogador == 3 and com == 2:
                 print('\33[32mJOGADOR\33[m escolheu TESOURA, \33[31mCOM\33[m escolheu PAPEL.')
                 print('\33[32;1mJOGADOR VENCE!\33[m')
+                pts += 1
+        qtde += 1
         print('--' * 8)
         resp = str(input('Deseja continuar?[s/n] ')).strip().upper()[0]
-        if resp != 'SN':
+        while resp not in 'SN':
             resp = str(input('ERRO! Deseja continuar?[s/n] ')).strip().upper()[0]
         if resp == 'N':
             break
+    print('--'*8)
+    print(f'Você fez {qtde} jogo(s) e somou {pts} ponto(s) ao todo!')
+    print('--' * 8)
 
 
 #programa principal
